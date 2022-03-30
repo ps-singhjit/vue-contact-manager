@@ -1,4 +1,4 @@
-# contact-manager
+# vue-contact-manager
 
 ## Project setup
 ```
