@@ -1,6 +1,12 @@
 <template>
   <div>
-    <h2>SpinnerComp</h2>
+    <div class="container">
+      <div class="row text-center">
+        <div class="col">
+          <img src="../assets/loading.gif" alt="" />
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

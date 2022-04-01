@@ -1,0 +1,147 @@
+{
+    "contacts": [
+        {
+            "id": "gsokjdgfoj",
+            "name": "Leanne Graham",
+            "email": "Sincere@april.biz",
+            "mobile": "1-770-736-8031 x56442",
+            "company": "hildegard.org",
+            "title": "freelancer",
+            "photo": "https://cdn-icons-png.flaticon.com/128/3135/3135715.png",
+            "groupId": "3"
+        },
+        {
+            "id": "glheru",
+            "name": "Ervin Howell",
+            "username": "Antonette",
+            "email": "Shanna@melissa.tv",
+            "mobile": "010-692-6593 x09125",
+            "company": "anastasia.net",
+            "title": "freelancer",
+            "photo": "https://cdn-icons.flaticon.com/png/128/560/premium/560277.png?token=exp=1648776916~hmac=eb6603e7d9d0ce9b7e562260256db76f",
+            "groupId": "2"
+        },
+        {
+            "id": "ioutrenfg",
+            "name": "Clementine Bauch",
+            "username": "Samantha",
+            "email": "Nathan@yesenia.net",
+            "mobile": "1-463-123-4447",
+            "company": "ramiro.info",
+            "title": "freelancer",
+            "photo": "https://cdn-icons.flaticon.com/png/128/2202/premium/2202112.png?token=exp=1648776916~hmac=3a973fd0bbc382cab43e43cb7310af6c",
+            "groupId": "1"
+        },
+        {
+            "id": "bohnfdroti",
+            "name": "Patricia Lebsack",
+            "username": "Karianne",
+            "email": "Julianne.OConner@kory.org",
+            "mobile": "493-170-9623 x156",
+            "company": "kale.biz",
+            "title": "freelancer",
+            "photo": "https://cdn-icons-png.flaticon.com/128/2922/2922510.png",
+            "groupId": "4"
+        },
+        {
+            "id": "64jfsdoiy",
+            "name": "Chelsey Dietrich",
+            "username": "Kamren",
+            "email": "Lucio_Hettinger@annie.ca",
+            "mobile": "(254)954-1289",
+            "company": "demarco.info",
+            "title": "freelancer",
+            "photo": "https://cdn-icons-png.flaticon.com/128/1177/1177568.png",
+            "groupId": "6"
+        },
+        {
+            "id": "oiyftbn",
+            "name": "Mrs. Dennis Schulist",
+            "username": "Leopoldo_Corkery",
+            "email": "Karley_Dach@jasper.info",
+            "mobile": "1-477-935-8478 x6430",
+            "company": "ola.org",
+            "title": "freelancer",
+            "photo": "https://cdn-icons.flaticon.com/png/128/2276/premium/2276400.png?token=exp=1648776916~hmac=3a4ef01ae4aae4b33bb704424203ff81",
+            "groupId": "5"
+        },
+        {
+            "id": "04johsgf",
+            "name": "Kurtis Weissnat",
+            "username": "Elwyn.Skiles",
+            "email": "Telly.Hoeger@billy.biz",
+            "mobile": "210.067.6132",
+            "company": "elvis.io",
+            "title": "freelancer",
+            "photo": "https://cdn-icons-png.flaticon.com/128/2922/2922561.png",
+            "groupId": "7"
+        },
+        {
+            "id": "09fdys8n",
+            "name": "Nicholas Runolfsdottir V",
+            "username": "Maxime_Nienow",
+            "email": "Sherwood@rosamond.me",
+            "mobile": "586.493.6943 x140",
+            "company": "jacynthe.com",
+            "title": "freelancer",
+            "photo": "https://cdn-icons-png.flaticon.com/128/7198/7198567.png",
+            "groupId": "8"
+        },
+        {
+            "id": "9jfhgoliu",
+            "name": "Glenna Reichert",
+            "username": "Delphine",
+            "email": "Chaim_McDermott@dana.io",
+            "mobile": "(775)976-6794 x41206",
+            "company": "conrad.com",
+            "title": "freelancer",
+            "photo": "https://cdn-icons-png.flaticon.com/128/7198/7198641.png",
+            "groupId": "1"
+        },
+        {
+            "id": "nslfdi59",
+            "name": "Clementina DuBuque",
+            "username": "Moriah.Stanton",
+            "email": "Rey.Padberg@karina.biz",
+            "mobile": "024-648-3804",
+            "company": "ambrose.net",
+            "title": "freelancer",
+            "photo": "https://cdn-icons-png.flaticon.com/128/7201/7201009.png",
+            "groupId": "4"
+        }
+    ],
+    "groups": [
+        {
+            "id": "1",
+            "name": "Colleague"
+        },
+        {
+            "id": "2",
+            "name": "Friend"
+        },
+        {
+            "id": "3",
+            "name": "Family"
+        },
+        {
+            "id": "4",
+            "name": "Service"
+        },
+        {
+            "id": "5",
+            "name": "Community"
+        },
+        {
+            "id": "6",
+            "name": "Social"
+        },
+        {
+            "id": "7",
+            "name": "Acquaintance"
+        },
+        {
+            "id": "8",
+            "name": "Partner"
+        }
+    ]
+}
