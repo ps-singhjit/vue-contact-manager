@@ -39,29 +39,35 @@
       </div>
     </div>
   </div>
-  <div class="container mt-3">
+  <!-- Spinner -->
+  <div v-if="loading">
+    <SpinnerComp />
+  </div>
+
+  <!-- Erro Message -->
+  <div class="text-center" v-if="!loading && errorMessage">
+    <p class="h3 text-danger fw-bold">{{ errorMessage }}</p>
+  </div>
+
+  <div class="container mt-3" v-if="!loading && contacts.data.length > 0">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-6" v-for="contact of contacts.data" :key="contact">
         <div class="card my-2 shadow list-group-item-success">
           <div class="card-body">
             <div class="row align-items-center">
               <div class="col-sm-4">
-                <img
-                  src="https://www.pngitem.com/pimgs/m/22-220721_circled-user-male-type-user-colorful-icon-png.png"
-                  alt=""
-                  class="contact-img"
-                />
+                <img :src="contact.photo" alt="" class="contact-img" />
               </div>
               <div class="col-sm-7">
                 <ul class="list-group">
                   <li class="list-group-item">
-                    Name: <span class="fw-bold">Dummy Name</span>
+                    Name: <span class="fw-bold">{{ contact.name }}</span>
                   </li>
                   <li class="list-group-item">
-                    Mobile: <span class="fw-bold">12358712</span>
+                    Mobile: <span class="fw-bold">{{ contact.mobile }}</span>
                   </li>
                   <li class="list-group-item">
-                    Email: <span class="fw-bold">Dummy@Name.com</span>
+                    Email: <span class="fw-bold">{{ contact.email }}</span>
                   </li>
                 </ul>
               </div>
@@ -98,8 +104,36 @@
 </template>
 
 <script>
+import { ContactService } from "@/services/ContactService";
+import SpinnerComp from "@/components/SpinnerComp.vue";
+
 export default {
+  components: { SpinnerComp },
   name: "ContactManager",
+  data: function () {
+    return {
+      loading: false,
+      contacts: [],
+      errorMessage: null,
+    };
+  },
+
+  created: async function () {
+    try {
+      this.loading = true;
+      let response = await ContactService.getAllContacts();
+      this.contacts = response;
+      console.log(
+        "Contact Manager::contact list: ",
+        JSON.stringify(this.contacts.data, null, 2)
+      );
+      this.loading = false;
+    } catch (error) {
+      this.errorMessage = error;
+      this.loading = false;
+      console.log(`Contact Manager:: created: error: ${this.errorMessage}`);
+    }
+  },
 };
 </script>
 

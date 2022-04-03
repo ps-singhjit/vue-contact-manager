@@ -15,28 +15,68 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <form action="">
+        <form @submit.prevent="submitCreate()">
           <div class="mb-2">
-            <input type="text" class="form-control" placeholder="Name" />
+            <input
+              v-model="contact.name"
+              type="text"
+              class="form-control"
+              placeholder="*Name"
+              required
+            />
           </div>
           <div class="mb-2">
-            <input type="text" class="form-control" placeholder="Photo URL" />
+            <input
+              v-model="contact.photo"
+              type="text"
+              class="form-control"
+              placeholder="Photo URL"
+            />
           </div>
           <div class="mb-2">
-            <input type="email" class="form-control" placeholder="Email" />
+            <input
+              v-model="contact.email"
+              type="email"
+              class="form-control"
+              placeholder="*Email"
+              required
+            />
           </div>
           <div class="mb-2">
-            <input type="phone" class="form-control" placeholder="Mobile" />
+            <input
+              v-model="contact.mobile"
+              type="phone"
+              class="form-control"
+              placeholder="*Mobile"
+              required
+            />
           </div>
           <div class="mb-2">
-            <input type="text" class="form-control" placeholder="Company" />
+            <input
+              v-model="contact.company"
+              type="text"
+              class="form-control"
+              placeholder="Company"
+            />
           </div>
           <div class="mb-2">
-            <input type="text" class="form-control" placeholder="Title" />
+            <input
+              v-model="contact.title"
+              type="text"
+              class="form-control"
+              placeholder="Title"
+            />
           </div>
           <div class="mb-2">
-            <select class="form-control">
+            <select
+              v-model="contact.groupId"
+              class="form-control"
+              v-if="groups.length > 0"
+            >
               <option value="">Select Group</option>
+              <option :value="group.id" v-for="group of groups" :key="group.id">
+                {{ group.name }}
+              </option>
             </select>
           </div>
           <div class="mb-2">
@@ -45,18 +85,53 @@
         </form>
       </div>
       <div class="col-md-4">
-        <img
-          src="http://assets.stickpng.com/images/585e4bcdcb11b227491c3396.png"
-          class="contact-img"
-        />
+        <img :src="contact.photo" class="contact-img" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { ContactService } from "@/services/ContactService";
 export default {
   name: "AddContact",
+  data: function () {
+    return {
+      contact: {
+        name: "",
+        email: "",
+        mobile: "",
+        company: "",
+        title: "",
+        photo: "",
+        groupId: "",
+      },
+      groups: [],
+    };
+  },
+  created: async function () {
+    try {
+      let response = await ContactService.getAllGroups();
+      this.groups = response.data;
+    } catch (error) {
+      console.log(`Add Contact:: created: error: ${error}`);
+    }
+  },
+  methods: {
+    submitCreate: async function () {
+      try {
+        let response = await ContactService.createContact(this.contact);
+        console.log(`Add Contact:: submitCreate: response: ${response}`);
+        if (response) {
+          return this.$router.push("/");
+        } else {
+          return this.$router.push("/contacts/add");
+        }
+      } catch (error) {
+        console.log(`Add Contact:: submitCreate: error: ${error}`);
+      }
+    },
+  },
 };
 </script>
 
