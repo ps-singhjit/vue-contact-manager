@@ -48,10 +48,9 @@
   <div class="text-center" v-if="!loading && errorMessage">
     <p class="h3 text-danger fw-bold">{{ errorMessage }}</p>
   </div>
-
-  <div class="container mt-3" v-if="!loading && contacts.data.length > 0">
+  <div class="container mt-3" v-if="!loading && contacts.length > 0">
     <div class="row">
-      <div class="col-md-6" v-for="contact of contacts.data" :key="contact">
+      <div class="col-md-6" v-for="contact of contacts" :key="contact">
         <div class="card my-2 shadow list-group-item-success">
           <div class="card-body">
             <div class="row align-items-center">
@@ -81,7 +80,7 @@
                 "
               >
                 <router-link
-                  to="/contacts/view/:contactId"
+                  :to="`/contacts/view/${contact.id}`"
                   class="btn btn-warning btn-sm my-1"
                   ><i class="fa fa-eye" aria-hidden="true"></i
                 ></router-link>
@@ -122,10 +121,10 @@ export default {
     try {
       this.loading = true;
       let response = await ContactService.getAllContacts();
-      this.contacts = response;
+      this.contacts = response.data;
       console.log(
         "Contact Manager::contact list: ",
-        JSON.stringify(this.contacts.data, null, 2)
+        JSON.stringify(this.contacts, null, 2)
       );
       this.loading = false;
     } catch (error) {
