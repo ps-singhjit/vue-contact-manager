@@ -85,7 +85,7 @@
                   ><i class="fa fa-eye" aria-hidden="true"></i
                 ></router-link>
                 <router-link
-                  to="/contacts/edit/:contactId"
+                  :to="`/contacts/edit/${contact.id}`"
                   class="btn btn-primary btn-sm my-1"
                 >
                   <i class="fas fa-edit"></i
