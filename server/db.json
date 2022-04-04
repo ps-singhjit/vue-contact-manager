@@ -99,16 +99,6 @@
       "title": "freelancer",
       "photo": "https://cdn-icons-png.flaticon.com/128/7201/7201009.png",
       "groupId": "4"
-    },
-    {
-      "name": "New User",
-      "email": "newuser@gmail.com",
-      "mobile": "9801836454",
-      "company": "TCS",
-      "title": "Developer",
-      "photo": "https://thumbs.dreamstime.com/b/computer-user-online-user-color-vector-icon-which-can-easily-modify-edit-computer-user-online-user-color-vector-icon-which-can-169466921.jpg",
-      "groupId": "5",
-      "id": "wGePgrE"
     }
   ],
   "groups": [

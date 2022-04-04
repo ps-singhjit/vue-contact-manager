@@ -90,7 +90,10 @@
                 >
                   <i class="fas fa-edit"></i
                 ></router-link>
-                <button class="btn btn-danger btn-sm my-1">
+                <button
+                  class="btn btn-danger btn-sm my-1"
+                  @click="deleteContact(contact.id, contact.name)"
+                >
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
               </div>
@@ -132,6 +135,36 @@ export default {
       this.loading = false;
       console.log(`Contact Manager:: created: error: ${this.errorMessage}`);
     }
+  },
+  methods: {
+    deleteContact: async function (contactId, contactName) {
+      try {
+        this.loading = true;
+        if (
+          confirm(
+            `${contactId} with name :: "${contactName}" will be delected!! Do you want to continue?`
+          )
+        ) {
+          let response = await ContactService.deleteContact(contactId);
+          if (response) {
+            let response = await ContactService.getAllContacts(); //getting fresh data
+            this.contacts = response.data;
+            alert(`Success !! ${contactName} is delected 👍 `);
+            this.loading = false;
+          } else {
+            alert(`Failure !! ${contactName} is not delected. 👍 `);
+            this.loading = false;
+          }
+        }
+      } catch (error) {
+        this.loading = false;
+        this.errorMessage = error;
+        this.loading = false;
+        console.log(
+          `Contact Manager:: deleteContact: error: ${this.errorMessage}`
+        );
+      }
+    },
   },
 };
 </script>
