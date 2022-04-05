@@ -81,6 +81,12 @@
           </div>
           <div class="mb-2">
             <input type="submit" class="btn btn-success" value="Create" />
+            <input
+              type="button"
+              class="btn btn-outline-success m-2"
+              value="Cancel"
+              @click="cancel()"
+            />
           </div>
         </form>
       </div>
@@ -130,6 +136,9 @@ export default {
       } catch (error) {
         console.log(`Add Contact:: submitCreate: error: ${error}`);
       }
+    },
+    cancel: function () {
+      return this.$router.push("/");
     },
   },
 };

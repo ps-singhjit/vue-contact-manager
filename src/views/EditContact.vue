@@ -32,6 +32,7 @@
               class="form-control"
               placeholder="Name"
               v-model="contact.name"
+              required
             />
           </div>
           <div class="mb-2">
@@ -48,6 +49,7 @@
               class="form-control"
               placeholder="Email"
               v-model="contact.email"
+              required
             />
           </div>
           <div class="mb-2">
@@ -56,6 +58,7 @@
               class="form-control"
               placeholder="Mobile"
               v-model="contact.mobile"
+              required
             />
           </div>
           <div class="mb-2">
