@@ -152,12 +152,13 @@ export default {
             let response = await ContactService.getAllContacts(); //getting fresh data
             this.contacts = response.data;
             alert(`Success !! ${contactName} is delected 👍 `);
-            this.loading = false;
+            // this.loading = false;
           } else {
             alert(`Failure !! ${contactName} is not delected.`);
-            this.loading = false;
+            // this.loading = false;
           }
         }
+        this.loading = false;
       } catch (error) {
         this.loading = false;
         this.errorMessage = error;
