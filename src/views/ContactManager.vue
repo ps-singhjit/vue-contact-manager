@@ -16,22 +16,23 @@
         </p>
         <form action="">
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="row">
                 <div class="col">
                   <input
                     type="text"
                     class="form-control"
                     placeholder="Search Name"
+                    v-model="search"
                   />
                 </div>
-                <div class="col">
+                <!-- <div class="col">
                   <input
                     type="submit"
                     class="btn btn-outline-success"
                     value="Search"
                   />
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -50,7 +51,7 @@
   </div>
   <div class="container mt-3" v-if="!loading && contacts.length > 0">
     <div class="row">
-      <div class="col-md-6" v-for="contact of contacts" :key="contact">
+      <div class="col-md-6" v-for="contact of filterNames" :key="contact.id">
         <div class="card my-2 shadow list-group-item-success">
           <div class="card-body">
             <div class="row align-items-center">
@@ -114,6 +115,7 @@ export default {
   name: "ContactManager",
   data: function () {
     return {
+      search: "",
       loading: false,
       contacts: [],
       errorMessage: null,
@@ -152,7 +154,7 @@ export default {
             alert(`Success !! ${contactName} is delected 👍 `);
             this.loading = false;
           } else {
-            alert(`Failure !! ${contactName} is not delected. 👍 `);
+            alert(`Failure !! ${contactName} is not delected.`);
             this.loading = false;
           }
         }
@@ -164,6 +166,14 @@ export default {
           `Contact Manager:: deleteContact: error: ${this.errorMessage}`
         );
       }
+    },
+  },
+
+  computed: {
+    filterNames: function () {
+      return this.contacts.filter((contact) =>
+        contact.name.toLowerCase().includes(this.search.toLowerCase())
+      );
     },
   },
 };
